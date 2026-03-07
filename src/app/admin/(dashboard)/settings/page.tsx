@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function SettingsPage() {
     const [pixelId, setPixelId] = useState('');
+    const [teraboxLink, setTeraboxLink] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [message, setMessage] = useState({ text: '', type: '' });
     const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ export default function SettingsPage() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.pixel_id) setPixelId(data.pixel_id);
+                if (data.terabox_link) setTeraboxLink(data.terabox_link);
             })
             .catch((err) => console.error("Failed to load settings", err));
     }, []);
@@ -36,6 +38,30 @@ export default function SettingsPage() {
                 setMessage({ text: 'Pixel ID updated successfully.', type: 'success' });
             } else {
                 setMessage({ text: 'Failed to update Pixel ID.', type: 'error' });
+            }
+        } catch (err) {
+            setMessage({ text: 'An error occurred.', type: 'error' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSaveTerabox = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage({ text: '', type: '' });
+
+        try {
+            const res = await fetch('/api/admin/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ terabox_link: teraboxLink }),
+            });
+
+            if (res.ok) {
+                setMessage({ text: 'Terabox Link updated successfully.', type: 'success' });
+            } else {
+                setMessage({ text: 'Failed to update Terabox Link.', type: 'error' });
             }
         } catch (err) {
             setMessage({ text: 'An error occurred.', type: 'error' });
@@ -105,6 +131,31 @@ export default function SettingsPage() {
                         className="bg-neutral-900 text-white px-6 py-2 rounded-xl font-medium hover:bg-neutral-800 disabled:opacity-50"
                     >
                         Save Pixel ID
+                    </button>
+                </form>
+            </div>
+
+            {/* Terabox Link Form */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-200 mb-8">
+                <h2 className="text-lg font-semibold mb-4 text-emerald-600">Product Download Link (Terabox)</h2>
+                <form onSubmit={handleSaveTerabox}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-medium text-neutral-700 mb-1">Terabox / Drive URL</label>
+                        <input
+                            type="url"
+                            value={teraboxLink}
+                            onChange={(e) => setTeraboxLink(e.target.value)}
+                            className="w-full px-4 py-2 rounded-xl border border-neutral-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+                            placeholder="https://terabox.com/..."
+                        />
+                        <p className="text-xs text-neutral-500 mt-2">Enter the URL where buyers can download the CuanPro template. This will be shown on the Success page after purchase.</p>
+                    </div>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="bg-neutral-900 text-white px-6 py-2 rounded-xl font-medium hover:bg-neutral-800 disabled:opacity-50"
+                    >
+                        Save Download Link
                     </button>
                 </form>
             </div>

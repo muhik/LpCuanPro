@@ -13,67 +13,11 @@ declare global {
 
 const resources = [
     {
-        title: "1000 Worksheet Islam",
-        desc: "Sudah dilengkapi dengan Worksheet Sholat & Wudhu.",
-        url: "https://drive.google.com/drive/folders/157HarZd-AGAgijGQsjfWMGAG-8sy1ywx",
-        type: "drive",
-        icon: Folder
-    },
-    {
-        title: "Koleksi Kisah Para Nabi & Cerita Islami Anak",
-        desc: "25 file PDF cerita edukasi islami lengkap full color siap baca/print.",
-        url: "https://drive.google.com/drive/folders/1sSksrIhenwBG6nqFGOAHFWIUakDW_2hW",
-        type: "drive",
-        icon: Folder
-    },
-    {
-        title: "30 Animasi Kisah Nabi & Sahabat",
-        desc: "File MP4 animasi kisah inspiratif Islami siap tonton.",
-        url: "https://drive.google.com/drive/folders/1JcK6t765zs09JhFBUtPVy8F3oegVGOVG",
-        type: "video",
-        icon: PlayCircle
-    },
-    {
-        title: "Buku PDF Adab & Sejarah Nabi",
-        desc: "Ratusan file PDF bergambar penuh warna tentang adab & akhlak sehari-hari.",
-        url: "https://drive.google.com/drive/folders/1rjJDXc5xma15Z5qjUfIsTIHLrZ2OvlW2",
-        type: "drive",
-        icon: Folder
-    },
-    {
-        title: "Aktivitas Hafalan & Games Logika",
-        desc: "Hafalan hadis pendek, meniru huruf hijaiyah, dan games mengasah otak anak.",
-        url: "https://drive.google.com/drive/folders/1KDxX3IO0dQKsriJGCFXWnNC5Gn59rlTQ",
-        type: "drive",
-        icon: Folder
-    },
-    {
-        title: "Aktivitas & Worksheet Spesial Ramadhan",
-        desc: "23 file gambar + worksheet eksklusif menyambut bulan suci Ramadhan.",
-        url: "https://drive.google.com/drive/folders/1-M6ltOXYniwmZSb376U9ch-4uMzAUnPq",
+        title: "Template CuanPro HPP & Analisis Bisnis",
+        desc: "Tautan unduhan utama via Terabox. (Harap segera simpan/bookmark).",
+        url: "#LINK_TERABOX_DISINI",
         type: "drive",
         icon: DownloadCloud
-    },
-    {
-        title: "Koleksi Video + Audio Islami Ramadhan.",
-        desc: "Koleksi audio dan video spesial untuk Ramadhan anak.",
-        url: "https://drive.google.com/drive/folders/1E-E0UUk-wp0bhgJfMCZpBbjGYgcVUjsJ",
-        type: "video",
-        icon: PlayCircle
-    },
-    {
-        title: "Bonus Youtube Playlist",
-        desc: "Kumpulan 48 Video edukasi langsung diputar via YouTube.",
-        url: "https://www.youtube.com/playlist?list=PLOA7-Gti4MVS3JbDaLCwT-pqZ-mZt2Hpw",
-        type: "youtube",
-        icon: Youtube
-    },
-    {
-        title: "Bonus Spesial AI: Materi Islami Anak Eksklusif",
-        desc: "Kumpulan konten edukatif Islami anak pilihan.",
-        url: "https://drive.google.com/drive/folders/157HarZd-AGAgijGQsjfWMGAG-8sy1ywx",
-        type: "drive",
-        icon: Sparkles
     }
 ];
 
@@ -233,7 +177,7 @@ function SuccessContent() {
 
                     <h1 className="text-3xl font-extrabold text-neutral-900 mb-3 tracking-tight">Pembayaran Berhasil! 🎉</h1>
                     <p className="text-lg text-neutral-600 max-w-xl mx-auto leading-relaxed">
-                        Terima kasih {tx.name} atas apresiasi Anda. Seluruh akses ke <strong>14.000++ Worksheet Anak</strong> dan berbagai bonus premium lainnya sudah bisa diunduh di bawah ini.
+                        Terima kasih {tx.name} atas pembelian Anda. Akses utama ke <strong>Template CuanPro</strong> sudah bisa diunduh langsung melalui tombol di bawah ini.
                     </p>
                 </div>
 
@@ -258,7 +202,7 @@ function SuccessContent() {
                                     </div>
                                 </div>
                                 <a
-                                    href={item.url}
+                                    href={tx?.terabox_link || item.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-full sm:w-auto shrink-0 bg-neutral-900 hover:bg-premium-600 text-white font-semibold py-2.5 px-6 rounded-xl transition-colors flex items-center justify-center gap-2"
@@ -269,27 +213,58 @@ function SuccessContent() {
                         ))}
                     </div>
 
-                    <div className="mt-12 mb-4 bg-gradient-to-r from-green-50 to-green-100 rounded-3xl p-6 md:p-8 border border-green-200 shadow-sm relative overflow-hidden text-center">
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 translate-x-8 -translate-y-8"></div>
-                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 -translate-x-8 translate-y-8"></div>
+                    {/* Panduan Instalasi Singkat */}
+                    <div className="mt-8 bg-neutral-100 border border-neutral-200 rounded-2xl p-6 text-left">
+                        <h3 className="text-lg font-bold text-neutral-800 mb-4 flex items-center">
+                            <span className="bg-neutral-800 text-white w-6 h-6 rounded-full inline-flex items-center justify-center text-sm mr-3">?</span>
+                            Cara Pakai Aplikasi CuanPro (Panduan Anti-Ribet)
+                        </h3>
+                        <p className="text-sm text-neutral-600 mb-4">
+                            Ikuti 4 langkah super mudah di bawah ini agar aplikasi kasir & keuangan CuanPro langsung bisa Anda gunakan di laptop/komputer Anda:
+                        </p>
+                        <ol className="list-decimal list-inside space-y-3 text-sm text-neutral-700 mb-5">
+                            <li><span className="font-semibold text-neutral-900">Download & Ekstrak</span> folder ZIP CuanPro dari tombol (Terabox) di atas.</li>
+                            <li><span className="font-semibold text-neutral-900">Install Node.js</span> (cukup 1x seumur hidup di laptop Anda). Link ada di dalam folder.</li>
+                            <li>Buka folder CuanPro yang sudah diekstrak, lalu <strong className="text-premium-600">Double-Click (Klik 2x) file bernama `Mulai.bat`</strong>. (Akan muncul kotak hitam loading, biarkan saja jangan ditutup).</li>
+                            <li>Buka browser Google Chrome Anda, lalu ketik: <code className="bg-white border rounded px-2 py-0.5 text-premium-700 font-mono">localhost:3000</code>. Tara! Web CuanPro Anda sudah siap dipakai! 🎉</li>
+                        </ol>
+
+                        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
+                            <div className="bg-blue-100 text-blue-600 w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-blue-900 text-sm sm:text-base mb-1">Butuh Bantuan Instalasi? (GRATIS)</h4>
+                                <p className="text-xs sm:text-sm text-blue-800">
+                                    Jika kesulitan mengikuti langkah di atas, kami menyediakan <strong>Layanan Instalasi Remote Online Gratis</strong>. Silakan siapkan aplikasi <strong>AnyDesk</strong> di laptop Anda, lalu klik tombol WhatsApp di bawah.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-12 mb-4 bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-3xl p-6 md:p-8 border border-emerald-200 shadow-sm relative overflow-hidden text-center">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 translate-x-8 -translate-y-8"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 -translate-x-8 translate-y-8"></div>
 
                         <div className="relative z-10 flex flex-col items-center">
-                            <h3 className="text-xl md:text-2xl font-extrabold text-green-900 mb-2 tracking-tight">
-                                Siap Banjir Cuan? 💸
+                            <h3 className="text-xl md:text-2xl font-extrabold text-emerald-900 mb-3 tracking-tight">
+                                Butuh Fitur Tambahan (Custom)? 🛠️
                             </h3>
-                            <p className="text-green-800 mb-5 max-w-lg mx-auto text-sm md:text-base">
-                                Dapatkan bimbingan eksklusif langsung via WhatsApp. Kami akan pastikan investasi Anda balik modal secepatnya!
+                            <p className="text-emerald-800 mb-6 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                                Anda ingin aplikasi CuanPro ini lebih disesuaikan dengan alur bisnis Anda? Kami melayani <strong>Enhancement / Custom Fitur</strong> senilai <strong className="bg-emerald-200 px-2 py-0.5 rounded">Rp 500.000</strong>.<br className="hidden md:block" /> Fasilitas termasuk: Penambahan User &amp; maksimal 5 Field Informasi Tambahan.
                             </p>
                             <a
-                                href="https://wa.me/6289666639360?text=Halo%20Kak%20Ikbal,%20saya%20sudah%20beli%20bundle%20PLR-nya.%20Mohon%20masukkan%20saya%20ke%20grup/bimbingan%20jualannya%20ya!"
+                                href="https://wa.me/6289666639360?text=Halo%20Admin,%20saya%20sudah%20beli%20CuanPro.%20Saya%20membutuhkan%20bantuan:%0A%0A1.%20Instalasi%20Remote%20Gratis%20(Anydesk)%0A2.%20Tanya%20Enhancement/Custom%20Fitur%0A%0A*Hapus%20yang%20tidak%20perlu"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-all shadow-md hover:shadow-lg hover:scale-105 text-sm"
+                                className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-md hover:shadow-xl hover:-translate-y-1 text-sm md:text-base border border-emerald-500"
                             >
                                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
                                 </svg>
-                                Dapatkan Bimbingan Jualan di WA
+                                Hubungi Kami di WhatsApp
                             </a>
                         </div>
                     </div>

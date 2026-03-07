@@ -12,7 +12,7 @@ declare global {
 
 export default function CheckoutForm() {
     const router = useRouter();
-    const [amount, setAmount] = useState('35000');
+    const [amount, setAmount] = useState('89000');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -73,11 +73,11 @@ export default function CheckoutForm() {
     return (
         <form className="space-y-5" onSubmit={handleSubmit}>
             {/* Trust / Value Proposition Banner */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 shadow-sm">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-emerald-800 shadow-sm">
                 <p className="flex items-start gap-2">
                     <span className="text-xl">💡</span>
                     <span>
-                        <strong>Keputusan Tepat!</strong> Hanya dengan investasi senilai 1 cangkir kopi (Rp35.000), Bunda sudah mendapatkan akses <strong>14.000+ Aset Digital Edukatif</strong> plus <strong>Hak Jual Ulang 100% Profit</strong> seumur hidup.
+                        <strong>Keputusan Tepat!</strong> Hanya dengan investasi <strong>Rp89.000</strong>, Anda sudah mendapatkan akses <strong>Template CuanPro HPP Calculator & Business Analytics</strong> untuk mengelola keuangan bisnis secara lebih profesional.
                     </span>
                 </p>
             </div>
@@ -93,7 +93,7 @@ export default function CheckoutForm() {
                         onChange={(e) => setAmount(e.target.value)}
                         className="w-full pl-12 pr-4 py-3 rounded-xl border border-neutral-300 focus:ring-2 focus:ring-premium-500 focus:border-premium-500 text-lg outline-none transition-shadow font-normal text-neutral-700"
                         required
-                        min="35000"
+                        min="89000"
                     />
                 </div>
             </div>
@@ -157,12 +157,12 @@ export default function CheckoutForm() {
 
             <div className="flex flex-col w-full">
                 <a
-                    href="https://wa.me/6289666639360?text=Halo%20Kak%20Ikbal,%20saya%20agak%20bingung%20isi%20formnya.%20Boleh%20Pesan%20Bundle%2014.000%20Worksheet%20PLR-nya%20secara%20manual%20aja%20(Transfer%20Langsung)?"
+                    href="https://wa.me/6289666639360?text=Halo%20Kak%20Ikbal,%20saya%20agak%20bingung%20isi%20formnya.%20Boleh%20Pesan%20Template%20CuanPro-nya%20secara%20manual%20aja%20(Transfer%20Langsung)?"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
                         if (typeof window !== 'undefined' && window.fbq) {
-                            window.fbq('track', 'InitiateCheckout', { currency: 'IDR', value: 35000 });
+                            window.fbq('track', 'InitiateCheckout', { currency: 'IDR', value: 89000 });
                         }
                     }}
                     className="w-full border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2"

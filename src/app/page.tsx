@@ -9,7 +9,7 @@ export default function Home() {
             {/* Navbar / Header */}
             <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200">
                 <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-                    <div className="font-bold text-xl tracking-tight text-premium-600">eBookPremium</div>
+                    <div className="font-bold text-xl tracking-tight text-premium-600">CuanPro</div>
                     <div className="flex items-center gap-4">
                         <Link href="/akses" className="text-sm font-semibold text-neutral-600 hover:text-premium-600 transition-colors hidden sm:block">
                             Akses Pembelian
@@ -27,10 +27,10 @@ export default function Home() {
                     🌟 Promo Spesial Hari Ini
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
-                    14.000++ Worksheet Anak Eksklusif Berkualitas
+                    Hitung HPP & Analisa Bisnis Lebih Akurat dengan CuanPro
                 </h1>
                 <p className="text-lg md:text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
-                    Dapatkan ribuan materi edukatif anak terlengkap. <strong>Dipakai sendiri bikin pintar, dijual lagi bikin cuan!</strong>
+                    Kalkulator HPP Otomatis, Proyeksi Profit, dan Dashboard Visual untuk keputusan bisnis yang lebih cerdas. <strong>Kelola bisnis tanpa ribet!</strong>
                 </p>
 
                 {/* DANA Cashback Badge */}
@@ -48,27 +48,22 @@ export default function Home() {
                 </div>
 
                 {/* Product Images */}
-                <div className="relative w-full max-w-2xl mx-auto flex flex-col gap-8 mb-12 items-center justify-center">
+                <div className="relative w-full max-w-4xl mx-auto flex flex-col gap-8 mb-12 items-center justify-center">
                     <img
-                        src="/ebook_ke2.png"
-                        alt="Bundle 14.000+ Worksheet Anak Islam"
+                        src="/CuanPro.jpg"
+                        alt="Dashboard CuanPro HPP Calculator"
                         className="w-full h-auto rounded-3xl shadow-2xl border border-neutral-200 object-contain hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
-                    />
-                    <img
-                        src="/iklanpapanworksheet.jpg?v=2"
-                        alt="Detail Isi Produk"
-                        className="w-full max-w-sm h-auto mx-auto rounded-3xl shadow-2xl border border-neutral-200 object-contain hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
                     />
                 </div>
 
                 {/* Features Grid */}
                 <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto text-left mb-16">
                     {[
-                        "Akses seumur hidup via Google Drive",
-                        "Lisensi Bisnis PLR (Bebas Dijual Ulang, Untung 100% Milik Anda)",
-                        "Ribuan materi siap print (PDF berkualitas)",
-                        "Bonus materi edukasi tambahan",
-                        "Harga promo termurah (Akses Penuh Selamanya)"
+                        "Kalkulator HPP & Manajemen Harga Otomatis",
+                        "Dashboard Visual Proyeksi Profit & Pendapatan",
+                        "Pencatatan Inventori & Manajemen Stok Fleksibel",
+                        "Analisis Kompetitor untuk Strategi Pasar",
+                        "Akses Sekali Bayar, Bebas Digunakan Selamanya"
                     ].map((feature, i) => (
                         <div key={i} className="flex items-start bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
                             <CheckCircle2 className="w-5 h-5 text-premium-500 mt-0.5 shrink-0" />
@@ -82,22 +77,22 @@ export default function Home() {
             <section className="bg-white py-16 border-y border-neutral-200">
                 <div className="max-w-3xl mx-auto px-4 space-y-6 text-lg text-neutral-700 leading-relaxed">
                     <p>
-                        🔥 <strong>Bunda, masa keemasan anak tak akan pernah terulang.</strong> Berikan mereka stimulus terbaik di usia pertumbuhannya! 😍
+                        🔥 <strong>Apakah Anda Benar-benar Tahu Berapa Profit Bisnis Anda Bulan Ini?</strong> 🤔
                     </p>
                     <p>
-                        <strong>14.000+ ASET PENDIDIKAN DAN BERBAGAI BONUS KONTEN EKSKLUSIF</strong> 🎉
+                        Banyak pebisnis yang merasa jualannya laris manis, uang selalu berputar setiap hari, <strong>tapi rekening tabungan bisnis kok gitu-gitu aja?</strong> Bahkan kadang nombok saat harus restock barang.
                     </p>
                     <p>
-                        Alihkan sejenak <em>gadget</em> mereka dengan aktivitas fisik yang mengasah otak dan kemampuan motoriknya. Terdiri dari ratusan materi bernuansa Islami (Sholat, Wudhu, Menulis Huruf Hijaiyah) dan puluhan ribu materi berhitung, mewarnai, serta aneka <em>games</em> visual lainnya.
+                        Akar masalahnya seringkali ada di <strong>kesalahan menentukan Harga Pokok Penjualan (HPP)</strong>. Kalau dari awal margin sudah tipis atau bahkan salah hitung karena tidak memasukkan biaya-biaya tersembunyi (seperti ongkir bahan, packaging, admin marketplace, dll), maka sampai kapan pun bisnis akan terasa "capeknya doang, untungnya entah ke mana".
                     </p>
                     <p>
-                        <em>Berapa harga investasi pendidikan ini?</em> Di luar sana, kumpulan buku senilai belasan ribu halaman bisa memakan biaya ratusan ribu hingga jutaan rupiah. Namun, khusus hari ini kami memberikan harga pangkas habis-habisan!
+                        Itulah alasan kami merancang <strong>CuanPro HPP Calculator & Business Analytics</strong>. Sebuah dashboard simpel, praktis, dan <em>powerful</em> untuk membantu pengusaha menghitung harga modal dengan sangat akurat sekaligus memantau proyeksi pendapatan bulanan mereka.
                     </p>
                     <p>
-                        Menariknya lagi, Bundle 14.000+ Aset ini dilengkapi dengan <strong>Lisensi Bisnis PLR (Private Label Rights)</strong>. Artinya Bunda tidak hanya berinvestasi untuk kecerdasan anak, tapi Bunda punya Hak Penuh untuk menjual ulang seluruh file PDF ini berkali-kali! Bayangkan modal cuma Rp35.000, Bunda bisa langsung balik modal (BEP) hanya dengan 1 pembeli pertama. Gimana kalau laku puluhan kali?
+                        <em>Berapa harga investasi untuk sistem cerdas ini?</em> Berlangganan software akutansi di luar sana bisa memakan biaya ratusan ribu rutin setiap bulannya. Namun dengan CuanPro, Anda tidak perlu membayar biaya bulanan!
                     </p>
                     <p>
-                        Miliki ribuan aset file cemerlang dan mesin uang digital ini <strong>hanya mulai dari Rp35.000 saja</strong>. Sekali bayar untuk ilmu dan modal bisnis seumur hidup. Silakan selesaikan pembayaran Bunda hari ini sebelum harga promo kami tarik kembali! 💖
+                        Miliki dashboard bisnis andalan ini <strong>hanya Rp89.000 saja</strong>. Sekali bayar untuk penggunaan seumur hidup. Selamat mengelola keuangan dengan lebih jernih dan temukan profit sesungguhnya dari bisnis Anda! 🚀
                     </p>
                 </div>
             </section>

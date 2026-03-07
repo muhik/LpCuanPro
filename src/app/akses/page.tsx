@@ -60,7 +60,7 @@ export default function AksesPage() {
                     </div>
                     <h1 className="text-3xl font-bold text-neutral-900 mb-2 tracking-tight">Cari Akses Saya</h1>
                     <p className="text-neutral-500">
-                        Kehilangan link Google Drive Anda?
+                        Kehilangan link Terabox CuanPro Anda?
                         <br />Masukkan email yang digunakan saat pembelian.
                     </p>
                 </div>

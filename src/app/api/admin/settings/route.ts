@@ -10,13 +10,14 @@ export async function GET() {
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const db = await getDb();
-        const pixelRow = await db.execute({
-            sql: 'SELECT value FROM settings WHERE key = ?',
-            args: ['pixel_id']
-        });
+        const [pixelRow, teraboxRow] = await Promise.all([
+            db.execute({ sql: 'SELECT value FROM settings WHERE key = ?', args: ['pixel_id'] }),
+            db.execute({ sql: 'SELECT value FROM settings WHERE key = ?', args: ['terabox_link'] })
+        ]);
 
         return NextResponse.json({
             pixel_id: pixelRow.rows.length > 0 ? pixelRow.rows[0].value : '',
+            terabox_link: teraboxRow.rows.length > 0 ? teraboxRow.rows[0].value : '',
         });
     } catch (error) {
         console.error('Settings GET error:', error);
@@ -29,7 +30,7 @@ export async function POST(request: Request) {
         const session = await requireAuth();
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-        const { pixel_id, new_password } = await request.json();
+        const { pixel_id, terabox_link, new_password } = await request.json();
         const db = await getDb();
 
         // Update Pixel ID if provided
@@ -40,6 +41,17 @@ export async function POST(request: Request) {
                     ON CONFLICT(key) DO UPDATE SET value = excluded.value
                 `,
                 args: [pixel_id]
+            });
+        }
+
+        // Update Terabox Link if provided
+        if (terabox_link !== undefined) {
+            await db.execute({
+                sql: `
+                    INSERT INTO settings (key, value) VALUES ('terabox_link', ?)
+                    ON CONFLICT(key) DO UPDATE SET value = excluded.value
+                `,
+                args: [terabox_link]
             });
         }
 

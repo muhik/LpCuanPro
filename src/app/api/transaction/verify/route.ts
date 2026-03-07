@@ -68,6 +68,23 @@ export async function GET(request: Request) {
             }
         }
 
+        // --- FETCH TERABOX LINK FROM SETTINGS ---
+        let teraboxLink = '';
+        try {
+            const result = await db.execute({
+                sql: 'SELECT value FROM settings WHERE key = ?',
+                args: ['terabox_link']
+            });
+            if (result.rows.length > 0) {
+                teraboxLink = result.rows[0].value as string;
+            }
+        } catch (settingsErr) {
+            console.error('Failed to fetch terabox link:', settingsErr);
+        }
+
+        // Attach the terabox link to the transaction object
+        tx.terabox_link = teraboxLink;
+
         return NextResponse.json({ transaction: tx });
 
     } catch (error) {
