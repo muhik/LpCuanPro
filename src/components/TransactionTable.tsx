@@ -63,9 +63,29 @@ export default function TransactionTable({ transactions }: { transactions: Trans
                                         <div className="text-neutral-500 text-xs mt-0.5">{tx.phone}</div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${tx.status === 'PAID' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
-                                            {tx.status}
-                                        </span>
+                                        <div className="flex items-center gap-2">
+                                            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${tx.status === 'PAID' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                                                {tx.status}
+                                            </span>
+                                            {tx.status === 'PENDING' && (
+                                                <button
+                                                    onClick={async () => {
+                                                        if (confirm('Tandai transaksi ini sebagai LUNAS secara manual?')) {
+                                                            try {
+                                                                const res = await fetch(`/api/admin/transactions/${tx.id}/pay`, { method: 'POST' });
+                                                                if (res.ok) window.location.reload();
+                                                                else alert('Gagal mengubah status');
+                                                            } catch (e) {
+                                                                alert('Terjadi kesalahan');
+                                                            }
+                                                        }
+                                                    }}
+                                                    className="text-xs px-2 py-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-md border border-neutral-200 transition-colors"
+                                                >
+                                                    Tandai Lunas
+                                                </button>
+                                            )}
+                                        </div>
                                     </td>
                                     <td className="px-6 py-4 font-semibold text-right text-premium-600">
                                         Rp {tx.amount.toLocaleString('id-ID')}
