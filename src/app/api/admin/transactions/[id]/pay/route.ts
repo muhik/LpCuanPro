@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
-import { cookies } from 'next/headers';
+import { requireAuth } from '@/lib/auth';
 
 export const runtime = 'edge';
 
@@ -9,20 +9,16 @@ export async function POST(
     { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        const session = await requireAuth();
+        if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
         const { id } = await params;
-        const cookieStore = await cookies();
-        const isLoggedIn = cookieStore.get('admin_session')?.value === 'true';
-
-        if (!isLoggedIn) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        }
-
         if (!id) {
             return NextResponse.json({ error: 'Transaction ID is required' }, { status: 400 });
         }
 
         const db = await getDb();
-        
+
         await db.execute({
             sql: 'UPDATE transactions SET status = ? WHERE id = ?',
             args: ['PAID', parseInt(id)]
