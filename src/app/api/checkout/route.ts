@@ -11,8 +11,8 @@ export async function POST(request: Request) {
         const amount = formData.get('amount') as string;
         const parsedAmount = parseInt(amount, 10);
 
-        if (isNaN(parsedAmount) || parsedAmount < 35000) {
-            return NextResponse.json({ error: 'Minimum pembayaran adalah Rp 35.000' }, { status: 400 });
+        if (isNaN(parsedAmount) || parsedAmount < 89000) {
+            return NextResponse.json({ error: 'Minimum pembayaran adalah Rp 89.000' }, { status: 400 });
         }
 
         const db = await getDb();
