@@ -72,7 +72,7 @@ export default function TransactionTable({ transactions }: { transactions: Trans
                                                     onClick={async () => {
                                                         if (confirm('Tandai transaksi ini sebagai LUNAS secara manual?')) {
                                                             try {
-                                                                const res = await fetch(`/api/admin/transactions/\${tx.id}/pay`, { method: 'POST' });
+                                                                const res = await fetch(`/api/admin/transactions/${tx.id}/pay`, { method: 'POST' });
                                                                 if (res.ok) window.location.reload();
                                                                 else alert('Gagal mengubah status');
                                                             } catch (e) {
